@@ -18,6 +18,7 @@ abstract class AppStyles{
     fontSize: 16,
     fontFamily: 'Poppins',
     fontWeight: FontWeight.w500,
+    // commit
   );
   static const styleRegular22 =TextStyle(
     color: Color(0xFF001640),
