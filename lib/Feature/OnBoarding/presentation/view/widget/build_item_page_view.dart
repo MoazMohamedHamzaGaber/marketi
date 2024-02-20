@@ -16,52 +16,60 @@ class BuildItemPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SvgPicture.asset(onBoardingModel.image),
-        const SizedBox(
-          height: 42,
-        ),
-        CustomSmoothIndicator(pageController: pageController, cubit: cubit,),
-        const SizedBox(
-          height: 26,
-        ),
-        CustomText(onBoardingModel: onBoardingModel),
-        const SizedBox(
-          height: 34,
-        ),
-        buildContainer(
-          text: 'Next',
-          function: () {
-            if (cubit.isLast) {
-              navigateAndFinish(context, const login());
-            }
-            pageController.nextPage(
-              duration: const Duration(
-                milliseconds: 750,
-              ),
-              curve: Curves.fastLinearToSlowEaseIn,
-            );
-            // if (cubit.isLast) {
-            //   SharedPreference.saveData(
-            //     key: 'onBoarding',
-            //     value: true,
-            //   ).then((value) {
-            //     if(value) {
-            //       navigateAndFinish(context, const LoginView());
-            //     }
-            //   });
-            // }
-            // pageController.nextPage(
-            //   duration: const Duration(
-            //     milliseconds: 750,
-            //   ),
-            //   curve: Curves.fastLinearToSlowEaseIn,
-            // );
-          },
-        ),
-      ],
+    return SafeArea(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Expanded(child: SizedBox()),
+          SvgPicture.asset(onBoardingModel.image),
+          const SizedBox(
+            height: 42,
+          ),
+          CustomSmoothIndicator(pageController: pageController, cubit: cubit,),
+          const SizedBox(
+            height: 26,
+          ),
+          CustomText(onBoardingModel: onBoardingModel),
+          const SizedBox(
+            height: 34,
+          ),
+          const Expanded(child: SizedBox()),
+          buildContainer(
+            text: 'Next',
+            function: () {
+              if (cubit.isLast) {
+                navigateAndFinish(context, const login());
+              }
+              pageController.nextPage(
+                duration: const Duration(
+                  milliseconds: 750,
+                ),
+                curve: Curves.fastLinearToSlowEaseIn,
+              );
+              // if (cubit.isLast) {
+              //   SharedPreference.saveData(
+              //     key: 'onBoarding',
+              //     value: true,
+              //   ).then((value) {
+              //     if(value) {
+              //       navigateAndFinish(context, const LoginView());
+              //     }
+              //   });
+              // }
+              // pageController.nextPage(
+              //   duration: const Duration(
+              //     milliseconds: 750,
+              //   ),
+              //   curve: Curves.fastLinearToSlowEaseIn,
+              // );
+            },
+          ),
+          const SizedBox(
+            height: 32,
+          ),
+          container(),
+        ],
+      ),
     );
   }
 }

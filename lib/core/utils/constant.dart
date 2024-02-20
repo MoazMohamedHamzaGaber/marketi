@@ -13,3 +13,15 @@ void navigateAndFinish(context,Widget)=>  Navigator.pushAndRemoveUntil(
          builder: (context) => Widget),
          (route) => false,
 );
+
+Widget container()=>Container(
+  width: 134,
+  height: 5,
+  margin: const EdgeInsets.only(bottom: 8),
+  decoration: ShapeDecoration(
+    color: Colors.black,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+  ),
+);
