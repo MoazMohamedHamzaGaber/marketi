@@ -5,7 +5,7 @@ abstract class AppStyles{
     color: Color(0xFF001640),
     fontSize: 12,
     fontFamily: 'Poppins',
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w500
   );
   static const styleMedium14 =TextStyle(
     color: Color(0xFF001640),
