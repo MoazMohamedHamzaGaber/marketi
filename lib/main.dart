@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marketi/Feature/Login/presentation/manage/cubit/login_cubit.dart';
 import 'package:marketi/Feature/OnBoarding/presentation/manage/cubit/on_boarding_cubit.dart';
 import 'package:marketi/Feature/OnBoarding/presentation/view/on_boarding_view.dart';
 
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (BuildContext context)=>OnBoardingCubit(),)
+        BlocProvider(create: (BuildContext context)=>OnBoardingCubit(),),
+        BlocProvider(create: (BuildContext context)=>LoginCubit(),),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
