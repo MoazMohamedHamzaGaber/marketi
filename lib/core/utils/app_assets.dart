@@ -3,7 +3,10 @@ class AppAssets {
   AppAssets._();
 
   static const String fontsPoppinsRegular = 'assets/fonts/Poppins-Regular.ttf';
+  static const String imagesAppleIcon = 'assets/images/Apple_Icon.svg';
+  static const String imagesFacebokIcon = 'assets/images/Facebok_Icon.svg';
   static const String imagesFrame = 'assets/images/Frame.svg';
+  static const String imagesGoogleIcon = 'assets/images/Google_Icon.svg';
   static const String imagesIllustrationCartEmpty = 'assets/images/Illustration_Cart_Empty.svg';
   static const String imagesIllustrationCongratulations = 'assets/images/Illustration_Congratulations.svg';
   static const String imagesIllustrationCreateNewPassword = 'assets/images/Illustration_Create_New_Password.svg';
