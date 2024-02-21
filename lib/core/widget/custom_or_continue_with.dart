@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../core/utils/app_assets.dart';
-import '../../../../../core/utils/app_styles.dart';
+import '../utils/app_assets.dart';
+import '../utils/app_styles.dart';
 
 class CustomOrContinueWith extends StatelessWidget {
   const CustomOrContinueWith({super.key});
@@ -11,9 +11,9 @@ class CustomOrContinueWith extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Text(
+         Text(
           'Or Continue With',
-          style: AppStyles.styleRegular12,
+          style: AppStyles.styleRegular12.copyWith(color: const Color(0xFF51526B),),
         ),
         const SizedBox(
           height: 16,
