@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:marketi/Feature/Register/feature/view/register_view.dart';
+import 'package:marketi/core/utils/constant.dart';
 
 import '../../../../../core/utils/app_styles.dart';
 
@@ -17,7 +19,9 @@ class CustomButtonRegister extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: (){},
+          onTap: (){
+            navigateTo(context, const RegisterView());
+          },
           child: Text(
             'register?',
             style: AppStyles.styleRegular12.copyWith(
