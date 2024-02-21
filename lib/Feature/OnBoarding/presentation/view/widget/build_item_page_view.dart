@@ -34,35 +34,40 @@ class BuildItemPageView extends StatelessWidget {
             height: 34,
           ),
           const Expanded(child: SizedBox()),
-          buildContainer(
-            text: 'Next',
-            function: () {
-              if (cubit.isLast) {
-                navigateAndFinish(context, const LoginView());
-              }
-              pageController.nextPage(
-                duration: const Duration(
-                  milliseconds: 750,
-                ),
-                curve: Curves.fastLinearToSlowEaseIn,
-              );
-              // if (cubit.isLast) {
-              //   SharedPreference.saveData(
-              //     key: 'onBoarding',
-              //     value: true,
-              //   ).then((value) {
-              //     if(value) {
-              //       navigateAndFinish(context, const LoginView());
-              //     }
-              //   });
-              // }
-              // pageController.nextPage(
-              //   duration: const Duration(
-              //     milliseconds: 750,
-              //   ),
-              //   curve: Curves.fastLinearToSlowEaseIn,
-              // );
-            },
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 14,
+            ),
+            child: buildContainer(
+              text: 'Next',
+              function: () {
+                if (cubit.isLast) {
+                  navigateAndFinish(context, const LoginView());
+                }
+                pageController.nextPage(
+                  duration: const Duration(
+                    milliseconds: 750,
+                  ),
+                  curve: Curves.fastLinearToSlowEaseIn,
+                );
+                // if (cubit.isLast) {
+                //   SharedPreference.saveData(
+                //     key: 'onBoarding',
+                //     value: true,
+                //   ).then((value) {
+                //     if(value) {
+                //       navigateAndFinish(context, const LoginView());
+                //     }
+                //   });
+                // }
+                // pageController.nextPage(
+                //   duration: const Duration(
+                //     milliseconds: 750,
+                //   ),
+                //   curve: Curves.fastLinearToSlowEaseIn,
+                // );
+              },
+            ),
           ),
           const SizedBox(
             height: 32,
