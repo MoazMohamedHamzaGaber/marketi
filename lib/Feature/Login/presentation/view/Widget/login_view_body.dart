@@ -45,7 +45,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               ),
               CustomTextField(
                   emailController: emailController,
-                  passwordController: passwordController),
+                  passwordController: passwordController,
+              ),
               const SizedBox(
                 height: 7,
               ),
@@ -56,10 +57,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               buildContainer(
                 text: 'Log In',
                 function: () {
-                  //if(formKey.currentState!.validate()){
+                  if(formKey.currentState!.validate()){
                     print(emailController.text);
                     print(passwordController.text);
-              //    }
+                  }
                 },
               ),
               const SizedBox(
