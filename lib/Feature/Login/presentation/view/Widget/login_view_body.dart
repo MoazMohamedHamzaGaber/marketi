@@ -6,7 +6,7 @@ import 'package:marketi/Feature/Login/presentation/view/Widget/forget_password.d
 import 'package:marketi/core/utils/app_assets.dart';
 import 'package:marketi/core/utils/components.dart';
 
-import 'custom_or_continue_with.dart';
+import '../../../../../core/widget/custom_or_continue_with.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
