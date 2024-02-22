@@ -19,5 +19,9 @@ class AppAssets {
   static const String imagesIllustrationSuccessOrder = 'assets/images/Illustration_Success_Order.svg';
   static const String imagesIllustrationVerificationCodeWithEmail = 'assets/images/Illustration_Verification_Code_With_Email.svg';
   static const String imagesIllustrationVerificationCodeWithPhone = 'assets/images/Illustration_Verification_Code_With_Phone.svg';
-  static const String imagesLogoSplashScreen = 'assets/images/Logo_Splash_Screen.svg';
+  static const String imagesWarning = 'assets/images/warning.png';
+  static const String imagesLogoLogIn = 'assets/images/Logo_Log_In.png';
+
+
+
 }
