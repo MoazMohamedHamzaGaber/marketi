@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi/Feature/Register/feature/manage/cubit/register_cubit.dart';
 import 'package:marketi/Feature/Register/feature/manage/cubit/register_states.dart';
+import 'package:marketi/Feature/Register/feature/view/widget/password_validator.dart';
 
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/components.dart';
@@ -13,6 +14,7 @@ class SectionTextField extends StatelessWidget {
   final emailController;
   final passwordController;
   final confirmPasswordController;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit,RegisterStates>(
@@ -37,8 +39,13 @@ class SectionTextField extends StatelessWidget {
                 textInputType: TextInputType.text,
                 prefixIcon: Icons.person_2_outlined,
                 text: 'Full Name',
-                validateText: 'Name is empty',
                 controller: nameController,
+                  validateFunction: (value) {
+                    if (value!.isEmpty) {
+                      return 'Name is required';
+                    }
+                    return null;
+                  }
               ),
               const SizedBox(
                 height: 4,
@@ -54,8 +61,13 @@ class SectionTextField extends StatelessWidget {
                 textInputType: TextInputType.emailAddress,
                 prefixIcon: Icons.email_outlined,
                 text: 'You@gmail.com',
-                validateText: 'Email is empty',
                 controller: emailController,
+                  validateFunction: (value) {
+                    if (value!.isEmpty) {
+                      return 'Email is required';
+                    }
+                    return null;
+                  }
               ),
               const SizedBox(
                 height: 4,
@@ -67,17 +79,9 @@ class SectionTextField extends StatelessWidget {
               const SizedBox(
                 height: 2,
               ),
-              buildTextField(
-                textInputType: TextInputType.visiblePassword,
-                prefixIcon: Icons.lock_outline,
-                text: '**************',
-                validateText: 'Password is empty',
-                controller: passwordController,
-                suffixIcon:cubit.obscureText? Icons.visibility :Icons.visibility_off,
-                suffixFunction: (){
-                  cubit.changeObscureText();
-                },
-                obscureText: cubit.obscureText,
+              PasswordValidator(
+                  controller: passwordController,
+                cubit: cubit,
               ),
               const SizedBox(
                 height: 4,
@@ -89,18 +93,10 @@ class SectionTextField extends StatelessWidget {
               const SizedBox(
                 height: 2,
               ),
-              buildTextField(
-                textInputType: TextInputType.visiblePassword,
-                prefixIcon: Icons.lock_outline,
-                text: '**************',
-                validateText: 'Password is empty',
-                controller: confirmPasswordController,
-                suffixIcon:cubit.obscureText? Icons.visibility :Icons.visibility_off,
-                suffixFunction: (){
-                  cubit.changeObscureText();
-                },
-                obscureText: cubit.obscureText,
-              ),
+          PasswordValidator(
+            controller: confirmPasswordController,
+            cubit: cubit,
+          ),
             ],
           ),
         );
