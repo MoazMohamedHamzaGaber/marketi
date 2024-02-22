@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'app_styles.dart';
 
@@ -59,22 +60,17 @@ Widget buildTextField({
   required IconData prefixIcon,
   IconData? suffixIcon,
   required String text,
-  required String validateText,
   bool obscureText = false,
   required TextEditingController controller,
    Function? suffixFunction,
+    required dynamic validateFunction,
 }) =>
     TextFormField(
       style: const TextStyle(
         color: Color(0xFF919AAB),
         fontSize: 16,
       ),
-      validator: (value) {
-        if (value!.isEmpty) {
-          return validateText;
-        }
-        return null;
-      },
+      validator: validateFunction,
       cursorHeight: 20,
       controller: controller,
       obscureText: obscureText,
@@ -120,3 +116,70 @@ Widget buildTextField({
           hintStyle: AppStyles.styleRegular12
               .copyWith(color: const Color(0xFF919AAB))),
     );
+
+Future<void> buildShowDialog({
+  required context,
+  required String image,
+  required String name,
+  required Function function,
+}) =>
+    showDialog(
+      context: context,
+      builder: (context) =>
+          AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            backgroundColor: Theme
+                .of(context)
+                .scaffoldBackgroundColor,
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  image,
+                  height: 60,
+                  width: 60,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(name),
+                const SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      function();
+                    },
+                    child: const Text('OK'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+    );
+
+void showToast({
+  required String text,
+}) =>
+    Fluttertoast.showToast(
+        msg: text,
+        toastLength: Toast.LENGTH_SHORT,
+        textColor: Colors.white,
+        fontSize: 16.0);
+
+Future buildShowLoading(context) async {
+  return await showDialog(
+      context: context,
+      builder: (context) {
+        return const AlertDialog(
+          title: Text('Please Wait'),
+          content: SizedBox(
+            height: 50,
+            child: Center(child: CircularProgressIndicator()),
+          ),
+        );
+      });
+}

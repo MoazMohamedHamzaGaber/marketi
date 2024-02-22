@@ -6,7 +6,7 @@ import 'package:marketi/Feature/Login/presentation/manage/cubit/login_states.dar
 import '../../../../../core/utils/components.dart';
 
 class CustomTextField extends StatelessWidget {
-   CustomTextField({super.key, this.emailController, this.passwordController});
+   const CustomTextField({super.key, this.emailController, this.passwordController});
 
   final emailController;
   final passwordController;
@@ -24,7 +24,12 @@ class CustomTextField extends StatelessWidget {
               textInputType: TextInputType.emailAddress,
               prefixIcon: Icons.mail_outline,
               text: 'Username or Email',
-              validateText: 'Email is empty',
+                validateFunction: (value) {
+                  if (value!.isEmpty) {
+                    return 'Email is empty';
+                  }
+                  return null;
+                }
             ),
             const SizedBox(
               height: 14,
@@ -35,10 +40,15 @@ class CustomTextField extends StatelessWidget {
                 textInputType: TextInputType.visiblePassword,
                 prefixIcon: Icons.lock_outline,
                 text: '**************',
-                validateText: 'Password is empty',
                 suffixIcon:cubit.obscureText? Icons.visibility :Icons.visibility_off,
                 suffixFunction: (){
                   cubit.changeObscureText();
+                },
+                validateFunction: (value) {
+                  if (value!.isEmpty) {
+                    return 'Password is empty';
+                  }
+                  return null;
                 }
             ),
           ],

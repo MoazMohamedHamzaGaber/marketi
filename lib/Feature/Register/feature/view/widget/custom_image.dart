@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/utils/app_assets.dart';
 
@@ -8,6 +7,7 @@ class CustomImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size=MediaQuery.sizeOf(context);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -27,7 +27,10 @@ class CustomImage extends StatelessWidget {
         const SizedBox(
           width: 28,
         ),
-        SvgPicture.asset(AppAssets.imagesIllustrationOnboarding3),
+        Image.asset(AppAssets.imagesLogoLogIn,
+          width: size.width *0.42,
+          height: size.height *0.18,
+        ),
       ],
     );
   }
