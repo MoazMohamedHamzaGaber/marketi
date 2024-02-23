@@ -4,6 +4,7 @@ import 'package:marketi/Feature/Login/presentation/view/login_view.dart';
 import 'package:marketi/Feature/OnBoarding/data/model/on_boarding_model.dart';
 import 'package:marketi/Feature/OnBoarding/presentation/view/widget/custom_text.dart';
 import 'package:marketi/core/utils/components.dart';
+import 'package:marketi/core/utils/shared_preference.dart';
 import '../../../../../core/utils/constant.dart';
 import 'custom_smooth_indicator.dart';
 
@@ -42,7 +43,13 @@ class BuildItemPageView extends StatelessWidget {
               text: 'Next',
               function: () {
                 if (cubit.isLast) {
-                  navigateAndFinish(context, const LoginView());
+                  SharedPreference.saveData(key: 'onBoarding', value: true).then((value)
+                  {
+                  if(value) {
+                        navigateAndFinish(context, const LoginView());
+                      }
+                  }
+                  );
                 }
                 pageController.nextPage(
                   duration: const Duration(
