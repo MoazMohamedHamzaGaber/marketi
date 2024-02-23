@@ -35,7 +35,7 @@ class LoginCubit extends Cubit<LoginStates>
         }
     ).then((value){
       loginModel=LoginModel.fromJson(value.data);
-      emit(LoginSuccessStates());
+      emit(LoginSuccessStates(uId: loginModel!.token!));
      Navigator.pop(context);
     }).catchError((error)
     {
@@ -45,31 +45,4 @@ class LoginCubit extends Cubit<LoginStates>
     }
     );
   }
-
-//   LoginModel? loginModel;
-//   void userLogin({
-//     required String email,
-//     required String password,
-//     required context
-// }){
-//     emit(LoginLoadingStates());
-//     buildShowLoading(context);
-//     DioHelper.postData(
-//         url: '/api/v1/auth/login',
-//       data: {
-//           'email':email,
-//           'password':password,
-//       }
-//     ).then((value){
-//       loginModel=LoginModel.fromJson(value.data);
-//       emit(LoginSuccessStates());
-//       Navigator.pop(context);
-//     }).catchError((error)
-//     {
-//       print(error.toString());
-//       emit(LoginErrorStates(error.toString()));
-//       Navigator.pop(context);
-//     }
-//     );
-//   }
 }
