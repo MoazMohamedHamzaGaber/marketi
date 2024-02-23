@@ -34,11 +34,16 @@ void main()async {
   runApp( MyApp(startWidget: widget,));
 }
 
-class MyApp extends StatelessWidget {
-  MyApp({super.key,required this.startWidget});
+class MyApp extends StatefulWidget {
+  const MyApp({super.key,required this.startWidget});
 
-  Widget? startWidget;
+ final Widget? startWidget;
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -50,7 +55,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Marketi',
-        home: startWidget,
+        home: widget.startWidget,
       ),
     );
   }
