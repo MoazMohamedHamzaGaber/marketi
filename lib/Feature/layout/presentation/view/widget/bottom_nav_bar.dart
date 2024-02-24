@@ -14,59 +14,37 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return BlocConsumer<LayoutCubit,LayoutStates>(
       listener: (BuildContext context, state) {  },
       builder: (BuildContext context, Object? state) {
         var cubit=LayoutCubit().get(context);
-        return Container(
-          color: const Color(0xff2B475E),
-          height: size.width * .155,
-          child: ListView.builder(
-            itemCount: 4,
-            scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: size.width * .024),
-            itemBuilder: (context, index) => InkWell(
-              onTap: () {
-                cubit.changeCurrentIndex(index);
-              },
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(height: size.width * .014),
-                  Icon(listOfIcons[index],
-                      size: size.width * .076, color: Colors.white),
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 1500),
-                    curve: Curves.fastLinearToSlowEaseIn,
-                    margin: EdgeInsets.only(
-                      top: index ==cubit.currentIndex ? 0 : size.width * .029,
-                      right: size.width * .0422,
-                      left: size.width * .0422,
-                    ),
-                    width: size.width * .153,
-                    height: index ==cubit.currentIndex ? size.width * .014 : 0,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(20),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+        return BottomNavigationBar(
+          currentIndex: cubit.currentIndex,
+            onTap: (index) {
+              cubit.changeCurrentIndex(index);
+            },
+            selectedItemColor: const Color(0xff3F80FF),
+            unselectedItemColor: const Color(0xff67687E),
+            showUnselectedLabels: true,
+            elevation: 20,
+            type: BottomNavigationBarType.fixed,
+            selectedIconTheme: const IconThemeData(size: 35),
+            items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
+          ),BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_outlined),
+            label: 'Cart',
+          ),BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Wishlist',
+          ),BottomNavigationBarItem(
+            icon: Icon(Icons.menu),
+            label: 'Menu',
           ),
-        );
+        ]);
       },
     );
   }
-
-  List<IconData> listOfIcons = [
-    Icons.home_rounded,
-    Icons.category_rounded,
-    Icons.favorite,
-    Icons.settings];
 }
