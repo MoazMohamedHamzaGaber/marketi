@@ -16,9 +16,6 @@ class LayoutViewBody extends StatelessWidget {
       builder: (BuildContext context, Object? state) {
         var cubit=LayoutCubit().get(context);
         return Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.black,
-          ),
           body: cubit.screens[cubit.currentIndex],
           bottomNavigationBar: const BottomNavBar(),
         );
