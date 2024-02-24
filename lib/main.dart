@@ -52,11 +52,11 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (BuildContext context)=>LoginCubit(),),
         BlocProvider(create: (BuildContext context)=>RegisterCubit(),),
       ],
-      child: const MaterialApp(
+      child:  MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Marketi',
-       // home: widget.startWidget,
-        home: LoginView(),
+       home: widget.startWidget,
+        //home: LoginView(),
       ),
     );
   }
