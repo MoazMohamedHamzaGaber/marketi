@@ -8,6 +8,7 @@ import 'package:marketi/Feature/Login/presentation/view/Widget/custom_text_field
 import 'package:marketi/Feature/Login/presentation/view/Widget/forget_password.dart';
 import 'package:marketi/core/utils/app_assets.dart';
 import 'package:marketi/core/utils/components.dart';
+import 'package:marketi/core/utils/shared_preference.dart';
 
 import '../../../../../core/utils/constant.dart';
 import '../../../../../core/widget/custom_or_continue_with.dart';
@@ -42,13 +43,14 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         }
         if(state is LoginSuccessStates)
         {
+
           showToast(text: 'Login Successful');
-          // SharedPreference.saveData(key: 'uid', value: state.uId).then((value)
-          // {
-          //   uid=state.uId;
+           SharedPreference.saveData(key: 'uid', value: state.uId).then((value)
+           {
+             uid=state.uId;
             navigateAndFinish(context, const HomeView());
-      //    }
-       //   );
+          }
+          );
         }
       },
       builder: (BuildContext context, Object? state) {
@@ -88,13 +90,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   buildContainer(
                     text: 'Log In',
                     function: () {
-                      if (formKey.currentState!.validate()) {
                         cubit.userLogin(
                           email: emailController.text,
                           password: passwordController.text,
                           context: context,
                         );
-                      }
                     },
                   ),
                   const SizedBox(

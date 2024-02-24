@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+String? uid;
+
 void navigateTo(context,Widget)=>Navigator.push(
     context,
     MaterialPageRoute(
