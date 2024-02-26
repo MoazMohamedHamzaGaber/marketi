@@ -33,7 +33,7 @@ PreferredSizeWidget customAppBar(){
                       image: DecorationImage(
                           fit: BoxFit.cover,
                           image: NetworkImage(
-                              'https://scontent.fcai19-3.fna.fbcdn.net/v/t39.30808-6/291647816_1234434427092672_409719422878525664_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFJlARVZzhJTswyT1bNq1k61OlLWUzwqtnU6UtZTPCq2fi3qDnrwbV9xcvgFSL7olqt2PQ7dG3yMEyU9TISbTx_&_nc_ohc=pkKf8eJKV5IAX-7gsf1&_nc_ht=scontent.fcai19-3.fna&oh=00_AfAmjMo2wb9IBglKB04SC5Lrl8l-SsbR_w38rmJoAsO5-w&oe=65DFD626'))),
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBGSEKSjd3QDc-fmnm6DWuybbxkh4LXzMLGdMoBasK7Q&s'))),
                 ),
               ),
             ],
