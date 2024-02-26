@@ -23,6 +23,7 @@ class AppAssets {
   static const String imagesSmartWatch = 'assets/images/Smart_Watch.png';
   static const String imagesSearchIconsUIA = 'assets/images/Search_Icons_UIA.png';
   static const String imagesWarning = 'assets/images/warning.png';
+  static const String imagesPhone = 'assets/images/Phone.png';
   static const String imagesLogoLogIn = 'assets/images/Logo_Log_In.png';
 
 
