@@ -18,22 +18,29 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(14.0),
-      child: Column(
-        children: [
-          CustomSearchTextField(searchController: searchController),
-          const SizedBox(
-            height: 14,
+      child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(child: CustomSearchTextField(searchController: searchController)),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 14,
+            ),
           ),
-          Image.asset(
-            AppAssets.imagesOffer1,
-            width: double.infinity,
-            fit: BoxFit.fill,
+          SliverToBoxAdapter(
+            child: Image.asset(
+              AppAssets.imagesOffer1,
+              width: double.infinity,
+              fit: BoxFit.fill,
+            ),
           ),
-          const SizedBox(
-            height: 14,
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 14,
+            ),
           ),
-          const SectionPopularProduct(),
-          const SectionCategory(),
+          const SliverToBoxAdapter(child: SectionPopularProduct()),
+          const SliverToBoxAdapter(child: SectionCategory()),
         ],
       ),
     );
