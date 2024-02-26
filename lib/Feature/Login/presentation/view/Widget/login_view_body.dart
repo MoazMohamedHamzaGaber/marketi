@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marketi/Feature/Home/presentation/view/home_view.dart';
 import 'package:marketi/Feature/Login/presentation/manage/cubit/login_cubit.dart';
 import 'package:marketi/Feature/Login/presentation/manage/cubit/login_states.dart';
 import 'package:marketi/Feature/Login/presentation/view/Widget/custom_button_register.dart';
 import 'package:marketi/Feature/Login/presentation/view/Widget/custom_text_field.dart';
 import 'package:marketi/Feature/Login/presentation/view/Widget/forget_password.dart';
+import 'package:marketi/Feature/layout/presentation/view/layout_view.dart';
 import 'package:marketi/core/utils/app_assets.dart';
 import 'package:marketi/core/utils/components.dart';
 import 'package:marketi/core/utils/shared_preference.dart';
@@ -43,12 +43,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         }
         if(state is LoginSuccessStates)
         {
-
           showToast(text: 'Login Successful');
            SharedPreference.saveData(key: 'uid', value: state.uId).then((value)
            {
              uid=state.uId;
-            navigateAndFinish(context, const HomeView());
+            navigateAndFinish(context, const LayoutView());
           }
           );
         }

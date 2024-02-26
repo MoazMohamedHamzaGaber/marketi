@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marketi/Feature/Home/presentation/view/home_view.dart';
 import 'package:marketi/Feature/Login/presentation/manage/cubit/login_cubit.dart';
-import 'package:marketi/Feature/Login/presentation/view/login_view.dart';
 import 'package:marketi/Feature/OnBoarding/presentation/view/on_boarding_view.dart';
 import 'package:marketi/Feature/OnBoarding/presentation/manage/cubit/on_boarding_cubit.dart';
 import 'package:marketi/Feature/Register/feature/manage/cubit/register_cubit.dart';
+import 'package:marketi/Feature/layout/presentation/manage/cubit/Layout_cubit.dart';
+import 'package:marketi/Feature/layout/presentation/view/layout_view.dart';
 import 'package:marketi/core/utils/api_service.dart';
 import 'package:marketi/core/utils/shared_preference.dart';
 
@@ -23,9 +23,9 @@ void main()async {
  Widget? widget;
  if(onBoarding !=null){
    if(uid !=null){
-     widget=const HomeView();
+     widget=const LayoutView();
    }else{
-     widget=const LoginView();
+     widget=const LayoutView();
    }
  }else{
    widget =const OnBoardingView();
@@ -51,12 +51,12 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (BuildContext context)=>OnBoardingCubit(),),
         BlocProvider(create: (BuildContext context)=>LoginCubit(),),
         BlocProvider(create: (BuildContext context)=>RegisterCubit(),),
+        BlocProvider(create: (BuildContext context)=>LayoutCubit(),),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Marketi',
-       // home: widget.startWidget,
-        home: LoginView(),
+       home: widget.startWidget,
       ),
     );
   }

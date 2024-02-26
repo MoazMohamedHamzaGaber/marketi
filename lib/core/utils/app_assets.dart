@@ -19,7 +19,11 @@ class AppAssets {
   static const String imagesIllustrationSuccessOrder = 'assets/images/Illustration_Success_Order.svg';
   static const String imagesIllustrationVerificationCodeWithEmail = 'assets/images/Illustration_Verification_Code_With_Email.svg';
   static const String imagesIllustrationVerificationCodeWithPhone = 'assets/images/Illustration_Verification_Code_With_Phone.svg';
+  static const String imagesOffer1 = 'assets/images/Offer_1.png';
+  static const String imagesSmartWatch = 'assets/images/Smart_Watch.png';
+  static const String imagesSearchIconsUIA = 'assets/images/Search_Icons_UIA.png';
   static const String imagesWarning = 'assets/images/warning.png';
+  static const String imagesPhone = 'assets/images/Phone.png';
   static const String imagesLogoLogIn = 'assets/images/Logo_Log_In.png';
 
 
