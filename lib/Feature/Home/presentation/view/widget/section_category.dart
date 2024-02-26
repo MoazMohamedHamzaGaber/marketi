@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketi/Feature/Home/presentation/view/widget/custom_grid_view.dart';
 import 'package:marketi/Feature/Home/presentation/view/widget/custom_title.dart';
 
 class SectionCategory extends StatelessWidget {
@@ -12,6 +13,7 @@ class SectionCategory extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
+        const CustomGridView(),
       ],
     );
   }
