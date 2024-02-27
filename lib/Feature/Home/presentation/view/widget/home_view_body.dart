@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketi/Feature/Home/presentation/view/widget/custom_text_field.dart';
+import 'package:marketi/Feature/Home/presentation/view/widget/section_brands.dart';
 import 'package:marketi/Feature/Home/presentation/view/widget/section_category.dart';
 import 'package:marketi/Feature/Home/presentation/view/widget/section_popular_product.dart';
 import 'package:marketi/core/utils/app_assets.dart';
@@ -41,6 +42,12 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           ),
           const SliverToBoxAdapter(child: SectionPopularProduct()),
           const SliverToBoxAdapter(child: SectionCategory()),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 14,
+            ),
+          ),
+          const SliverToBoxAdapter(child: SectionBrands()),
         ],
       ),
     );
